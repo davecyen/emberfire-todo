@@ -1,1 +1,1 @@
-A single-page web application for managing todos, built with Ember.js. Demo here: http://davecyen.github.io/todo/
+A single-page web app for managing todos. Built with EmberJS and Firebase, with the EmberFire Library. Demo here: http://davecyen.github.io/emberfire-todo
