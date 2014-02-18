@@ -5,7 +5,7 @@ Todos.ApplicationAdapter = DS.FirebaseAdapter.extend({
 });
 
 var dbRoot ='https://emberfire-todo.firebaseio.com/';
-var dbRef = new Firebase(dbRoot)
+var dbRef = new Firebase(dbRoot);
 
 var usersPath = dbRoot + "/users";
 

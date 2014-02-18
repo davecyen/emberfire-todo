@@ -65,7 +65,7 @@ Todos.TodosController = Ember.ArrayController.extend({
       } else if (githubUser) {
         // user authenticated
 
-        console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+        console.log('User ID: ' + githubUser.id + ', Provider: ' + user.provider);
 
         // this.set('authed', true);
         // var userRef = new Firebase(usersPath + '/' + githubUser.username);
