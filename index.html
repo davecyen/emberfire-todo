@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
     <script type="text/x-handlebars" data-template-name="todos/index">
       <ul id="todo-list">
         {{#each itemController="todo"}}
@@ -57,18 +58,28 @@
 
       <footer id="info">
         <p>Double-click to edit a todo</p>
+        {{#if auth.authed }}
+          <a href="#">
+            {{ auth.currentUser.name }}
+          </a>
+          <a {{ action logout }}>Logout</a>
+        {{else}}
+          <button {{ action login }}>Sign in with Github</button>
+        {{/if}}
       </footer>
     </script>
+
     <script src="js/libs/jquery-1.10.2.min.js"></script>
     <script src="js/libs/handlebars-1.0.0.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src='https://cdn.firebase.com/js/simple-login/1.2.5/firebase-simple-login.js'></script>
     <script src="js/libs/ember.js"></script>
     <script src="js/libs/ember-data.js"></script>
-    <script src="js/libs/localstorage_adapter.js"></script>
-    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
     <script src="http://firebase.github.io/emberFire/emberfire-latest.js"></script>
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
     <script src="js/models/todo.js"></script>
+    <script src="js/models/user.js"></script>
     <script src="js/controllers/todos_controller.js"></script>
     <script src="js/controllers/todo_controller.js"></script>
     <script src="js/views/edit_todo_view.js"></script>
