@@ -8,9 +8,17 @@ Todos.Router.map(function() {
 Todos.TodosRoute = Ember.Route.extend({
   model: function(){
     return this.store.find('todo');
+  },
+  actions: {
+    login: function() {
+      this.get('auth').login();
+    },
+
+    logout: function() {
+      this.get('auth').logout();
+    }
   }
 });
-
 
 Todos.TodosIndexRoute = Ember.Route.extend({
   model: function(){
