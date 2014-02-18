@@ -65,22 +65,22 @@ Todos.TodosController = Ember.ArrayController.extend({
       } else if (githubUser) {
         // user authenticated
 
-        console.log('User ID: ' + githubUser.id + ', Provider: ' + githubUser.provider);
+        // console.log('User ID: ' + githubUser.id + ', Provider: ' + githubUser.provider);
 
-        // this.set('authed', true);
-        // var userRef = new Firebase(usersPath + '/' + githubUser.username);
-        // var controller = this;
-        // var properties = {
-        //   id: githubUser.username,
-        //   name: githubUser.username,
-        //   displayName: githubUser.displayName,
-        //   avatarUrl: githubUser.avatar_url,
-        // };
-        // userRef.once('value', function(snapshot) {
-        //   var user = Todos.User.create({ ref: userRef });
-        //   user.setProperties(properties);
-        //   controller.set('currentUser', user);
-        // });
+        this.set('authed', true);
+        var userRef = new Firebase(usersPath + '/' + githubUser.username);
+        var controller = this;
+        var properties = {
+          id: githubUser.username,
+          name: githubUser.username,
+          displayName: githubUser.displayName,
+          avatarUrl: githubUser.avatar_url,
+        };
+        userRef.once('value', function(snapshot) {
+          var user = Todos.User.create({ ref: userRef });
+          user.setProperties(properties);
+          controller.set('currentUser', user);
+        });
 
       } else {
         // user is logged out
