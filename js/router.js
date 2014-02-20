@@ -20,6 +20,12 @@ Todos.TodosRoute = Ember.Route.extend({
   }
 });
 
+Todos.UsersRoute = Ember.Route.extend({
+  model: function(){
+    return this.modelFor('users');
+  }
+});
+
 Todos.TodosIndexRoute = Ember.Route.extend({
   model: function(){
     return this.modelFor('todos');
