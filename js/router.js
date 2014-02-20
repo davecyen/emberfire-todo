@@ -8,7 +8,10 @@ Todos.Router.map(function() {
 Todos.TodosRoute = Ember.Route.extend({
   model: function(){
     return this.store.find('todo');
-  },
+  }
+});
+
+Todos.UsersRoute = Ember.Route.extend({
   actions: {
     login: function() {
       this.get('auth').login();
@@ -17,10 +20,7 @@ Todos.TodosRoute = Ember.Route.extend({
     logout: function() {
       this.get('auth').logout();
     }
-  }
-});
-
-Todos.UsersRoute = Ember.Route.extend({
+  },
   model: function(){
     return this.modelFor('users');
   }
