@@ -58,6 +58,8 @@
 
       <footer id="info">
         <p>Double-click to edit a todo</p>
+      </footer>
+      <script type="text/x-handlebars" data-template-name="users">
         {{#if auth.authed }}
           <a href="#">
             {{ auth.currentUser.name }}
@@ -66,7 +68,7 @@
         {{else}}
           <button {{ action login }}>Sign in with Github</button>
         {{/if}}
-      </footer>
+      </script>
     </script>
 
     <script src="js/libs/jquery-1.10.2.min.js"></script>
@@ -79,9 +81,10 @@
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
     <script src="js/models/todo.js"></script>
-    <script src="js/models/user.js"></script>
+    <script src="js/models/users.js"></script>
     <script src="js/controllers/todos_controller.js"></script>
     <script src="js/controllers/todo_controller.js"></script>
+    <script src="js/controllers/users_controller.js"></script>
     <script src="js/views/edit_todo_view.js"></script>
   </body>
 </html>

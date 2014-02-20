@@ -50,51 +50,6 @@ Todos.TodosController = Ember.ArrayController.extend({
       this.invoke('save');
       return value;
     }
-  }.property('@each.isCompleted'),
-
-  //authentication
-
-  authed: false,
-  currentUser: null,
-
-  init: function() {
-    this.authClient = new FirebaseSimpleLogin(dbRef, function(error, githubUser) {
-      if (error) {
-        // an error occurred while logging in
-        alert('Authentication failed: ' + error);
-      } else if (githubUser) {
-        // user authenticated
-
-        // console.log('User ID: ' + githubUser.id + ', Provider: ' + githubUser.provider);
-
-        this.set('authed', true);
-        var userRef = new Firebase(usersPath + '/' + githubUser.username);
-        var controller = this;
-        var properties = {
-          id: githubUser.username,
-          name: githubUser.username,
-          displayName: githubUser.displayName,
-          avatarUrl: githubUser.avatar_url,
-        };
-        userRef.once('value', function(snapshot) {
-          var user = Todos.User.create({ ref: userRef });
-          user.setProperties(properties);
-          controller.set('currentUser', user);
-        });
-
-      } else {
-        // user is logged out
-        this.set('authed', false);
-      }
-    }.bind(this));
-  },
-
-  login: function() {
-    this.authClient.login('github');
-  },
-
-  logout: function() {
-    this.authClient.logout();
-  }
+  }.property('@each.isCompleted')
 
 });
