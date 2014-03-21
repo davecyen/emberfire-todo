@@ -11,21 +11,6 @@ Todos.TodosRoute = Ember.Route.extend({
   }
 });
 
-Todos.UsersRoute = Ember.Route.extend({
-  actions: {
-    login: function() {
-      this.get('auth').login();
-    },
-
-    logout: function() {
-      this.get('auth').logout();
-    }
-  },
-  model: function(){
-    return this.modelFor('users');
-  }
-});
-
 Todos.TodosIndexRoute = Ember.Route.extend({
   model: function(){
     return this.modelFor('todos');
